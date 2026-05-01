@@ -8,6 +8,15 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="RentEase">
 <meta name="description" content="Property rental management made simple for Kenyan landlords">
+<meta property="og:title" content="RentEase — Property Management">
+<meta property="og:description" content="The easiest way for Kenyan landlords to manage rent, track payments and send reminders.">
+<meta property="og:image" content="https://rentease-kenya.netlify.app/og-image.svg">
+<meta property="og:url" content="https://rentease-kenya.netlify.app">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RentEase — Property Management">
+<meta name="twitter:description" content="The easiest way for Kenyan landlords to manage rent, track payments and send reminders.">
+<meta name="twitter:image" content="https://rentease-kenya.netlify.app/og-image.svg">
 <link rel="manifest" href="#" id="manifest-link">
 <title>RentEase — Property Management</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -29,6 +38,7 @@
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--surface2);border-radius:2px}
 body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;display:flex;overflow-x:hidden}
 
+/* ===== LOADING SCREEN ===== */
 .loading-screen{display:flex;position:fixed;inset:0;background:var(--bg);z-index:2000;align-items:center;justify-content:center;flex-direction:column;gap:16px}
 .loading-screen.hide{display:none}
 .loading-logo{width:48px;height:48px;background:var(--mpesa);border-radius:12px;display:flex;align-items:center;justify-content:center}
@@ -36,6 +46,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .loading-spinner{width:24px;height:24px;border:2px solid var(--border2);border-top-color:var(--mpesa);border-radius:50%;animation:spin 0.8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
+/* ===== PWA INSTALL BANNER ===== */
 .install-banner{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg3);border-top:1px solid var(--border-green);padding:14px 20px;z-index:9999;align-items:center;gap:12px;box-shadow:0 -8px 32px rgba(0,0,0,0.5)}
 .install-banner.show{display:flex}
 .install-banner-text{flex:1;font-size:13px;font-weight:600}
@@ -43,6 +54,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .install-btn{background:var(--mpesa);color:#fff;border:none;border-radius:var(--r);padding:9px 16px;font-size:12px;font-weight:700;font-family:var(--font);cursor:pointer;white-space:nowrap}
 .install-dismiss{background:transparent;border:none;color:var(--text3);font-size:18px;cursor:pointer;padding:4px}
 
+/* ===== SUBSCRIPTION GATE ===== */
 .sub-gate{display:none;position:fixed;inset:0;background:var(--bg);z-index:500;align-items:center;justify-content:center;flex-direction:column}
 .sub-gate.active{display:flex}
 .sub-gate::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,166,81,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,166,81,0.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
@@ -63,6 +75,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .sub-grace{font-size:11px;color:var(--text3);font-family:var(--mono)}
 .sub-grace span{color:var(--amber)}
 
+/* ===== AUTH SCREENS ===== */
 .auth-screen{display:none;position:fixed;inset:0;z-index:1000;background:var(--bg);align-items:center;justify-content:center;flex-direction:column}
 .auth-screen.active{display:flex}
 .auth-screen::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,166,81,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,166,81,0.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
@@ -85,10 +98,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .auth-switch a{color:var(--mpesa-bright);cursor:pointer;text-decoration:none;font-weight:600}
 .auth-error{background:var(--red-bg);border:1px solid rgba(255,77,77,0.2);border-radius:var(--r);padding:10px 12px;font-size:12px;color:var(--red);margin-bottom:14px;display:none}
 .auth-error.show{display:block}
+.admin-hint{background:var(--amber-bg);border:1px solid rgba(245,166,35,0.2);border-radius:var(--r);padding:10px 12px;font-size:11px;color:var(--amber);margin-bottom:14px;font-family:var(--mono)}
 .pricing-note{background:var(--mpesa-glow);border:1px solid var(--border-green);border-radius:var(--r);padding:10px 12px;font-size:11px;color:var(--mpesa-bright);margin-bottom:14px;font-family:var(--mono)}
 
+/* ===== ADMIN BAR ===== */
 .admin-bar{background:var(--amber-bg);border-bottom:1px solid rgba(245,166,35,0.2);padding:6px 28px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--amber);font-family:var(--mono)}
 
+/* ===== APP LAYOUT ===== */
 .app-wrap{display:none;width:100%;min-height:100vh;flex-direction:column}
 .app-wrap.active{display:flex}
 .sidebar{width:256px;min-height:100vh;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;left:0;top:0;bottom:0;z-index:100}
@@ -136,6 +152,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .sub-fee-row{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--surface);border-radius:var(--r);font-size:12px}
 .sub-fee-row span:first-child{color:var(--text2)}.sub-fee-row span:last-child{font-family:var(--mono);font-weight:600;color:var(--mpesa-bright)}
 
+/* ===== MAIN ===== */
 .main{margin-left:256px;flex:1;min-height:100vh;display:flex;flex-direction:column}
 .topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 28px;height:58px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
 .topbar-left{display:flex;align-items:center;gap:10px}
@@ -195,6 +212,7 @@ tbody tr.row-locked:hover{background:rgba(255,77,77,0.08)}
 .b-locked-unit{background:var(--red-bg);color:var(--red);border:1px solid rgba(255,77,77,0.3)}
 .b-method{background:var(--blue-bg);color:var(--blue);border:1px solid rgba(77,166,255,0.2)}
 .b-cash{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(245,166,35,0.2)}
+.b-admin{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(245,166,35,0.2)}
 .b-active{background:var(--mpesa-glow);color:var(--mpesa-bright);border:1px solid var(--border-green)}
 .b-locked{background:var(--red-bg);color:var(--red);border:1px solid rgba(255,77,77,0.2)}
 .b-grace{background:var(--amber-bg);color:var(--amber);border:1px solid rgba(245,166,35,0.2)}
@@ -207,6 +225,7 @@ tbody tr.row-locked:hover{background:rgba(255,77,77,0.08)}
 .unit-card.unit-locked{border-color:rgba(255,77,77,0.45)!important;background:linear-gradient(135deg,#1A0F0F 0%,#1C1212 100%)!important;transform:none!important}
 .unit-card.unit-locked .unit-number-big{color:var(--red)}
 .locked-banner{display:flex;align-items:center;gap:8px;background:rgba(255,77,77,0.1);border:1px solid rgba(255,77,77,0.2);border-radius:8px;padding:8px 10px;margin-top:10px;font-size:11px;color:var(--red);font-weight:600}
+.locked-banner svg{flex-shrink:0}
 .unit-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
 .unit-number-big{font-family:var(--mono);font-size:18px;font-weight:600}
 .unit-prop{font-size:10px;color:var(--text3);margin-top:1px;font-family:var(--mono)}
@@ -229,6 +248,7 @@ tbody tr.row-locked:hover{background:rgba(255,77,77,0.08)}
 .reminder-detail{font-size:11px;color:var(--text3);font-family:var(--mono)}
 .reminder-amount{font-size:16px;font-weight:800;color:var(--red);font-family:var(--mono);margin-bottom:4px;text-align:right}
 .sub-admin-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;margin-bottom:12px}
+.sub-admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
 .sub-summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
 .sub-summary-item{background:var(--bg4);border-radius:var(--r);padding:14px;text-align:center}
 .sub-summary-val{font-size:22px;font-weight:800;font-family:var(--mono);letter-spacing:-0.5px}
@@ -251,6 +271,7 @@ tbody tr.row-locked:hover{background:rgba(255,77,77,0.08)}
 .mpesa-stat{background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.05);border-radius:var(--r);padding:14px}
 .mpesa-stat-label{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;color:rgba(0,166,81,0.5);text-transform:uppercase;margin-bottom:4px}
 .mpesa-stat-value{font-size:18px;font-weight:800;letter-spacing:-0.5px;color:var(--mpesa-bright)}
+.mpesa-stat-sub{font-size:10px;color:var(--text3);margin-top:2px}
 .mpesa-bar-label{display:flex;justify-content:space-between;font-size:11px;color:var(--text2);margin-bottom:6px}
 .mpesa-bar-label span:last-child{font-family:var(--mono);font-weight:600;color:var(--mpesa-bright)}
 .mpesa-progress{height:6px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden}
@@ -304,31 +325,47 @@ select option{background:var(--bg3)}
 .copy-url-box{background:var(--bg4);border:1px solid var(--border-green);border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;justify-content:space-between;margin-top:8px}
 .copy-url-text{font-family:var(--mono);font-size:12px;color:var(--mpesa-bright)}
 
-@media(max-width:900px){.stat-grid{grid-template-columns:1fr 1fr}.mpesa-stats-row{grid-template-columns:1fr 1fr}.sidebar{width:220px}.main{margin-left:220px}.sub-summary-grid{grid-template-columns:1fr 1fr 1fr}}
-@media(max-width:680px){.sidebar{display:none}.main{margin-left:0}.stat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){
+  .stat-grid{grid-template-columns:1fr 1fr}
+  .mpesa-stats-row{grid-template-columns:1fr 1fr}
+  .sidebar{width:220px}
+  .main{margin-left:220px}
+  .sub-summary-grid{grid-template-columns:1fr 1fr 1fr}
+}
+@media(max-width:680px){
+  .sidebar{display:none}
+  .main{margin-left:0}
+  .stat-grid{grid-template-columns:1fr 1fr}
+}
 </style>
 </head>
 <body>
 
+<!-- LOADING SCREEN -->
 <div class="loading-screen" id="loadingScreen">
   <div class="loading-logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
   <div class="loading-spinner"></div>
-  <div class="loading-text" id="loading-text">Loading RentEase...</div>
+  <div class="loading-text">Loading RentEase...</div>
 </div>
 
+<!-- PWA INSTALL BANNER -->
 <div class="install-banner" id="installBanner">
-  <div><div class="install-banner-text">📱 Install RentEase</div><div class="install-banner-sub">Add to home screen for the best experience</div></div>
+  <div>
+    <div class="install-banner-text">📱 Install RentEase</div>
+    <div class="install-banner-sub">Add to home screen for the best experience</div>
+  </div>
   <button class="install-btn" id="installBtn">Install App</button>
   <button class="install-dismiss" onclick="document.getElementById('installBanner').classList.remove('show')">✕</button>
 </div>
 
+<!-- SUBSCRIPTION GATE -->
 <div class="sub-gate" id="subGate">
   <div class="sub-card">
     <div class="sub-icon">🔒</div>
     <div class="sub-title">Subscription Required</div>
     <div class="sub-body">Your RentEase subscription has expired or not yet been confirmed. Pay your monthly fee to regain access.</div>
     <div class="sub-amount" id="gate-amount">KSH 0</div>
-    <div class="sub-amount-label" id="gate-amount-label">per month</div>
+    <div class="sub-amount-label" id="gate-amount-label">per month (0 units × KSH 280)</div>
     <div class="sub-steps">
       <div class="sub-step"><div class="sub-step-num">1</div><div class="sub-step-text">Send <strong id="gate-kes">KSH 0</strong> via M-Pesa to <strong>0116365370</strong></div></div>
       <div class="sub-step"><div class="sub-step-num">2</div><div class="sub-step-text">Use your <strong>email address</strong> as the M-Pesa reference/note</div></div>
@@ -338,7 +375,7 @@ select option{background:var(--bg3)}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Notify Admin on WhatsApp
     </a>
-    <div class="sub-grace">Contact admin if you've already paid · <span>0116365370</span></div>
+    <div class="sub-grace" id="gate-grace-msg">Contact admin if you've already paid · <span>0116365370</span></div>
     <div style="margin-top:14px"><button class="btn btn-ghost" style="width:100%;justify-content:center" onclick="doLogout()">Sign Out</button></div>
   </div>
 </div>
@@ -353,8 +390,14 @@ select option{background:var(--bg3)}
     <div class="auth-title">Welcome back</div>
     <div class="auth-sub">Sign in to manage your properties</div>
     <div class="auth-error" id="login-error"></div>
-    <div class="auth-form-group"><div class="auth-label">Email address</div><input class="auth-input" id="login-email" type="email" placeholder="you@example.com" autocomplete="email"></div>
-    <div class="auth-form-group"><div class="auth-label">Password</div><input class="auth-input" id="login-password" type="password" placeholder="••••••••"></div>
+    <div class="auth-form-group">
+      <div class="auth-label">Email address</div>
+      <input class="auth-input" id="login-email" type="email" placeholder="you@example.com" autocomplete="email">
+    </div>
+    <div class="auth-form-group">
+      <div class="auth-label">Password</div>
+      <input class="auth-input" id="login-password" type="password" placeholder="••••••••">
+    </div>
     <button class="auth-btn" id="login-btn" onclick="doLogin()">Sign In</button>
     <div class="auth-switch">Don't have an account? <a onclick="showRegister()">Create one</a></div>
   </div>
@@ -386,7 +429,10 @@ select option{background:var(--bg3)}
 <div class="app-wrap" id="appWrap">
   <aside class="sidebar">
     <div class="sidebar-logo">
-      <div class="logo-mark"><div class="logo-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><span class="logo-wordmark">RentEase</span></div>
+      <div class="logo-mark">
+        <div class="logo-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <span class="logo-wordmark">RentEase</span>
+      </div>
       <div class="logo-sub">Property Management</div>
     </div>
     <div class="sidebar-user">
@@ -411,11 +457,11 @@ select option{background:var(--bg3)}
       <button class="nav-item" data-page="mpesa"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>M-Pesa<span class="nav-badge nav-badge-green" id="mpesa-badge">0</span></button>
       <button class="nav-item" data-page="units"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>Units</button>
       <button class="nav-item" data-page="payments"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>Payments</button>
-      <button class="nav-item" data-page="arrears"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>Arrears<span class="nav-badge" id="arrears-badge" style="display:none">0</span></button>
-      <button class="nav-item" data-page="reminders"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>Reminders<span class="nav-badge" id="reminders-badge" style="display:none">0</span></button>
+      <button class="nav-item" data-page="arrears"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>Arrears<span class="nav-badge" id="arrears-badge">0</span></button>
+      <button class="nav-item" data-page="reminders"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>Reminders<span class="nav-badge" id="reminders-badge">0</span></button>
       <div class="nav-heading" id="admin-nav-section" style="display:none">Admin</div>
       <button class="nav-item" data-page="subscriptions" id="nav-subscriptions" style="display:none"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span>Subscriptions<span class="nav-badge" style="background:var(--red)" id="unpaid-sub-badge">0</span></button>
-      <button class="nav-item" data-page="admin-users" id="nav-admin-users" style="display:none"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>All Landlords<span class="nav-badge" style="background:var(--amber-bg);color:var(--amber)" id="users-count">0</span></button>
+      <button class="nav-item" data-page="admin-users" id="nav-admin-users" style="display:none"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>All Landlords<span class="nav-badge b-admin" style="background:var(--amber-bg);color:var(--amber)" id="users-count">0</span></button>
       <button class="nav-item" data-page="launch" id="nav-launch" style="display:none"><span class="nav-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></span>Launch Guide</button>
     </div>
     <div class="sidebar-bottom">
@@ -439,15 +485,24 @@ select option{background:var(--bg3)}
         <span class="topbar-month" id="topbar-month"></span>
       </div>
       <div class="topbar-right">
-        <button class="btn btn-ghost" onclick="openModal('paymentModal')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Log Payment</button>
-        <button class="btn btn-primary" onclick="openModal('unitModal')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add Unit</button>
+        <button class="btn btn-ghost" onclick="openModal('paymentModal')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Log Payment
+        </button>
+        <button class="btn btn-primary" onclick="openModal('unitModal')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Add Unit
+        </button>
       </div>
     </div>
+
     <div class="content">
+      <!-- DASHBOARD -->
       <div id="page-dashboard" class="page active">
         <div class="welcome-banner">
           <div class="welcome-avatar" id="welcome-avatar">?</div>
-          <div class="welcome-text"><h2 id="welcome-greeting">Welcome!</h2><p id="welcome-sub">Here's your property overview for this month.</p></div>
+          <div class="welcome-text">
+            <h2 id="welcome-greeting">Welcome!</h2>
+            <p id="welcome-sub">Here's your property overview for this month.</p>
+          </div>
         </div>
         <div class="stat-grid">
           <div class="stat-card primary">
@@ -477,13 +532,20 @@ select option{background:var(--bg3)}
           </div>
         </div>
         <div class="table-wrap">
-          <table><thead><tr><th>Unit</th><th>Property</th><th>Tenant</th><th>Rent (KSH)</th><th>Status</th><th>Paid</th><th>Balance</th><th>Actions</th></tr></thead><tbody id="dash-tbody"></tbody></table>
+          <table>
+            <thead><tr><th>Unit</th><th>Property</th><th>Tenant</th><th>Rent (KSH)</th><th>Status</th><th>Paid</th><th>Balance</th><th>Actions</th></tr></thead>
+            <tbody id="dash-tbody"></tbody>
+          </table>
         </div>
       </div>
 
+      <!-- MPESA -->
       <div id="page-mpesa" class="page">
         <div class="mpesa-hero">
-          <div class="mpesa-hero-header"><div class="mpesa-logo-row"><div class="mpesa-logo-box">M-PESA</div><div class="mpesa-hero-title">Collections Dashboard</div></div><div class="live-tag"><div class="mpesa-dot"></div>Live</div></div>
+          <div class="mpesa-hero-header">
+            <div class="mpesa-logo-row"><div class="mpesa-logo-box">M-PESA</div><div class="mpesa-hero-title">Collections Dashboard</div></div>
+            <div class="live-tag"><div class="mpesa-dot"></div>Live</div>
+          </div>
           <div class="mpesa-stats-row">
             <div class="mpesa-stat"><div class="mpesa-stat-label">Total Collected</div><div class="mpesa-stat-value" id="mp-collected">KSH 0</div></div>
             <div class="mpesa-stat"><div class="mpesa-stat-label">M-Pesa Txns</div><div class="mpesa-stat-value" id="mp-txns">0</div></div>
@@ -494,55 +556,80 @@ select option{background:var(--bg3)}
           <div class="mpesa-progress"><div class="mpesa-progress-fill" id="mp-progress-fill" style="width:0%"></div></div>
           <div class="mpesa-txns" id="mp-txn-list"></div>
         </div>
-        <div class="table-wrap"><table><thead><tr><th>Date</th><th>Unit</th><th>Tenant</th><th>Amount</th><th>Method</th><th>Reference</th><th>Actions</th></tr></thead><tbody id="mp-table-body"></tbody></table></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Unit</th><th>Tenant</th><th>Amount</th><th>Method</th><th>Reference</th><th>Actions</th></tr></thead>
+            <tbody id="mp-table-body"></tbody>
+          </table>
+        </div>
       </div>
 
+      <!-- UNITS -->
       <div id="page-units" class="page">
         <div class="filter-row">
           <input class="filter-input" id="unit-search" placeholder="Search units, tenants..." oninput="renderUnits()">
           <select class="filter-input" id="unit-status-filter" style="width:auto" onchange="renderUnits()">
-            <option value="">All Units</option><option value="occupied">Occupied</option><option value="vacant">Vacant</option><option value="locked">Locked</option>
+            <option value="">All Units</option>
+            <option value="occupied">Occupied</option>
+            <option value="vacant">Vacant</option>
+            <option value="locked">Locked</option>
           </select>
         </div>
         <div class="unit-grid" id="unit-grid"></div>
       </div>
 
+      <!-- PAYMENTS -->
       <div id="page-payments" class="page">
         <div class="filter-row" id="month-filters"></div>
-        <div class="table-wrap"><table><thead><tr><th>Date</th><th>Unit</th><th>Tenant</th><th>Amount</th><th>Method</th><th>Reference</th><th>Actions</th></tr></thead><tbody id="pay-tbody"></tbody></table></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Unit</th><th>Tenant</th><th>Amount</th><th>Method</th><th>Reference</th><th>Actions</th></tr></thead>
+            <tbody id="pay-tbody"></tbody>
+          </table>
+        </div>
       </div>
 
+      <!-- ARREARS -->
       <div id="page-arrears" class="page">
         <div class="section-header"><div class="section-title">Tenants in Arrears</div><span class="section-sub" id="arrears-month-label"></span></div>
         <div id="arrears-container"></div>
       </div>
 
+      <!-- REMINDERS -->
       <div id="page-reminders" class="page">
         <div class="section-header"><div class="section-title">Send Reminders</div><span class="section-sub" id="reminder-month-label"></span></div>
         <div id="reminders-container"></div>
       </div>
 
+      <!-- SUBSCRIPTIONS (Admin) -->
       <div id="page-subscriptions" class="page">
         <div class="sub-summary-grid" style="margin-bottom:20px">
           <div class="sub-summary-item"><div class="sub-summary-val" id="sub-total-revenue">KSH 0</div><div class="sub-summary-label">Total Revenue</div></div>
           <div class="sub-summary-item"><div class="sub-summary-val" style="color:var(--mpesa-bright)" id="sub-active-count">0</div><div class="sub-summary-label">Active</div></div>
           <div class="sub-summary-item"><div class="sub-summary-val" style="color:var(--red)" id="sub-unpaid-count">0</div><div class="sub-summary-label">Unpaid</div></div>
         </div>
-        <div class="table-wrap"><div id="sub-landlord-list"></div></div>
+        <div class="table-wrap" id="sub-table-wrap"><div id="sub-landlord-list"></div></div>
       </div>
 
+      <!-- ADMIN: ALL LANDLORDS -->
       <div id="page-admin-users" class="page">
-        <div class="section-header" style="margin-bottom:16px"><div class="section-title">All Registered Landlords</div><span class="section-sub" id="landlord-count-label">0 accounts</span></div>
+        <div class="section-header" style="margin-bottom:16px">
+          <div class="section-title">All Registered Landlords</div>
+          <span class="section-sub" id="landlord-count-label">0 accounts</span>
+        </div>
         <div class="table-wrap"><div id="admin-users-list"></div></div>
       </div>
 
+      <!-- LAUNCH GUIDE -->
       <div id="page-launch" class="page">
-        <div style="background:var(--mpesa-glow);border:1px solid var(--border-green);border-radius:var(--r-lg);padding:16px 20px;margin-bottom:20px;font-size:13px;color:var(--mpesa-bright);font-weight:600">🚀 Your app is now powered by Firebase. Data is safely stored in the cloud!</div>
+        <div style="background:var(--mpesa-glow);border:1px solid var(--border-green);border-radius:var(--r-lg);padding:16px 20px;margin-bottom:20px;font-size:13px;color:var(--mpesa-bright);font-weight:600">
+          🚀 Your app is now powered by Firebase. Data is safely stored in the cloud!
+        </div>
         <div class="launch-card">
           <div style="font-size:14px;font-weight:800;margin-bottom:18px;letter-spacing:-0.3px">Your App is Live — Share it with Landlords</div>
           <div class="launch-step"><div class="launch-step-num">1</div><div class="launch-step-body"><h4>Your live URL</h4><p>Share this link with landlords to sign up and use the app.</p><div class="copy-url-box"><span class="copy-url-text" id="live-url">your-app.vercel.app</span><button class="btn btn-pay btn-sm" onclick="navigator.clipboard.writeText(document.getElementById('live-url').textContent).then(()=>toast('Copied!'))">Copy</button></div></div></div>
-          <div class="launch-step"><div class="launch-step-num">2</div><div class="launch-step-body"><h4>Install on phone</h4><p>Open your URL on any phone → tap Share → "Add to Home Screen"</p></div></div>
-          <div class="launch-step"><div class="launch-step-num">3</div><div class="launch-step-body"><h4>Admin login</h4><p>Sign in with your admin email and password to manage all landlords.</p></div></div>
+          <div class="launch-step"><div class="launch-step-num">2</div><div class="launch-step-body"><h4>Install on phone</h4><p>Open your URL on any phone → tap Share → "Add to Home Screen" → installs like a real app.</p></div></div>
+          <div class="launch-step"><div class="launch-step-num">3</div><div class="launch-step-body"><h4>Admin login</h4><p>Sign in with your admin email and password to manage all landlords and subscriptions.</p></div></div>
         </div>
       </div>
     </div>
@@ -555,9 +642,15 @@ select option{background:var(--bg3)}
     <div class="modal-header"><div class="modal-title" id="unit-modal-title">Add New Unit</div><div class="modal-close" onclick="closeModal('unitModal')">✕</div></div>
     <div class="modal-body">
       <input type="hidden" id="u-id">
-      <div class="form-row"><div class="form-group"><label>Unit Number / Name</label><input id="u-name" placeholder="e.g. A1, Flat 3"></div><div class="form-group"><label>Monthly Rent (KSH)</label><input type="number" id="u-rent" placeholder="8000"></div></div>
+      <div class="form-row">
+        <div class="form-group"><label>Unit Number / Name</label><input id="u-name" placeholder="e.g. A1, Flat 3"></div>
+        <div class="form-group"><label>Monthly Rent (KSH)</label><input type="number" id="u-rent" placeholder="8000"></div>
+      </div>
       <div class="form-group"><label>Property / Block</label><input id="u-property" placeholder="e.g. Njoro Court"></div>
-      <div class="form-row"><div class="form-group"><label>Tenant Name</label><input id="u-tenant" placeholder="Full name (optional)"></div><div class="form-group"><label>Tenant Phone</label><input id="u-phone" placeholder="07xxxxxxxx"></div></div>
+      <div class="form-row">
+        <div class="form-group"><label>Tenant Name</label><input id="u-tenant" placeholder="Full name (optional)"></div>
+        <div class="form-group"><label>Tenant Phone</label><input id="u-phone" placeholder="07xxxxxxxx"></div>
+      </div>
       <div class="form-group"><label>Move-in Date</label><input type="date" id="u-movein"></div>
       <div class="form-group"><label>Notes</label><input id="u-notes" placeholder="Any additional notes"></div>
     </div>
@@ -570,8 +663,14 @@ select option{background:var(--bg3)}
     <div class="modal-header"><div class="modal-title" id="pay-modal-title">Log Payment</div><div class="modal-close" onclick="closeModal('paymentModal')">✕</div></div>
     <div class="modal-body">
       <input type="hidden" id="p-id">
-      <div class="form-row"><div class="form-group"><label>Unit</label><select id="p-unit" onchange="prefillRent()"><option value="">— Select unit —</option></select></div><div class="form-group"><label>Amount (KSH)</label><input type="number" id="p-amount" placeholder="e.g. 8000"></div></div>
-      <div class="form-row"><div class="form-group"><label>Date</label><input type="date" id="p-date"></div><div class="form-group"><label>Method</label><select id="p-method"><option>M-Pesa</option><option>Cash</option><option>Bank Transfer</option><option>Cheque</option></select></div></div>
+      <div class="form-row">
+        <div class="form-group"><label>Unit</label><select id="p-unit" onchange="prefillRent()"><option value="">— Select unit —</option></select></div>
+        <div class="form-group"><label>Amount (KSH)</label><input type="number" id="p-amount" placeholder="e.g. 8000"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Date</label><input type="date" id="p-date"></div>
+        <div class="form-group"><label>Method</label><select id="p-method"><option>M-Pesa</option><option>Cash</option><option>Bank Transfer</option><option>Cheque</option></select></div>
+      </div>
       <div class="form-group"><label>M-Pesa Ref / Note</label><input id="p-note" placeholder="e.g. QK12345678"></div>
       <div class="form-group"><label>Month (payment for)</label><input type="month" id="p-month"></div>
     </div>
@@ -583,7 +682,10 @@ select option{background:var(--bg3)}
   <div class="modal">
     <div class="modal-header"><div class="modal-title" id="qp-title">Log Payment</div><div class="modal-close" onclick="closeModal('quickModal')">✕</div></div>
     <div class="modal-body">
-      <div class="form-row"><div class="form-group"><label>Amount (KSH)</label><input type="number" id="qp-amount"></div><div class="form-group"><label>Method</label><select id="qp-method"><option>M-Pesa</option><option>Cash</option><option>Bank Transfer</option></select></div></div>
+      <div class="form-row">
+        <div class="form-group"><label>Amount (KSH)</label><input type="number" id="qp-amount"></div>
+        <div class="form-group"><label>Method</label><select id="qp-method"><option>M-Pesa</option><option>Cash</option><option>Bank Transfer</option></select></div>
+      </div>
       <div class="form-group"><label>Reference / Note</label><input id="qp-note" placeholder="M-Pesa ref or note"></div>
       <div class="form-group"><label>Month (payment for)</label><input type="month" id="qp-month"></div>
     </div>
@@ -601,20 +703,21 @@ select option{background:var(--bg3)}
 
 <div class="toast" id="toast"></div>
 
+<!-- FIREBASE SDK -->
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-import { getFirestore, doc, getDoc, setDoc, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { getFirestore, doc, getDoc, setDoc, updateDoc, collection, getDocs, deleteDoc, query, where } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
 // ============================================================
-// NEW FIREBASE CONFIG
+// FIREBASE CONFIG — Your credentials
 // ============================================================
 const firebaseConfig = {
-  apiKey: "AIzaSyCG54T9EUMJF7KOJJMJ3C0ijHpmNhloDuY",
-  authDomain: "rentease-72444.firebaseapp.com",
-  projectId: "rentease-72444",
-  storageBucket: "rentease-72444.firebasestorage.app",
-  messagingSenderId: "249951500728",
-  appId: "1:249951500728:web:458fa0b21e4c76bdb7774d"
+  apiKey: "AIzaSyBco1DACI1T4MsfQBLhP2eaBxnc7wF4zBs",
+  authDomain: "rentease-5f3e7.firebaseapp.com",
+  projectId: "rentease-5f3e7",
+  storageBucket: "rentease-5f3e7.firebasestorage.app",
+  messagingSenderId: "745832459290",
+  appId: "1:745832459290:web:f202e42832c74f70e0f5a3"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -641,7 +744,7 @@ let allUsersCache = {};
 // PWA
 // ============================================================
 function injectManifest() {
-  const manifest = { name: 'RentEase', short_name: 'RentEase', start_url: '/', display: 'standalone', background_color: '#0A0E0B', theme_color: '#00A651', icons: [{ src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='32' fill='%2300A651'/%3E%3C/svg%3E", sizes: '192x192', type: 'image/svg+xml' }] };
+  const manifest = { name: 'RentEase — Property Management', short_name: 'RentEase', start_url: '/', display: 'standalone', background_color: '#0A0E0B', theme_color: '#00A651', icons: [{ src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='32' fill='%2300A651'/%3E%3Cpath d='M36 96L96 40l60 56v64a8 8 0 01-8 8H44a8 8 0 01-8-8V96z' fill='white'/%3E%3Crect x='72' y='116' width='48' height='48' rx='4' fill='%2300A651'/%3E%3C/svg%3E", sizes: '192x192', type: 'image/svg+xml' }] };
   const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
   document.getElementById('manifest-link').href = URL.createObjectURL(blob);
 }
@@ -649,15 +752,11 @@ window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferr
 document.getElementById('installBtn').addEventListener('click', () => { if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => { deferredPrompt = null; document.getElementById('installBanner').classList.remove('show'); }); } });
 
 // ============================================================
-// SESSION
+// SESSION (keep login across page refreshes — browser only, not the data)
 // ============================================================
 function getSession() { try { return JSON.parse(localStorage.getItem(SESSION_KEY)); } catch(e) { return null; } }
 function saveSession(u) { localStorage.setItem(SESSION_KEY, JSON.stringify(u)); }
 function clearSession() { localStorage.removeItem(SESSION_KEY); }
-
-function setLoadingText(t) { document.getElementById('loading-text').textContent = t; }
-function showLoading(t) { setLoadingText(t || 'Loading...'); document.getElementById('loadingScreen').classList.remove('hide'); }
-function hideLoading() { document.getElementById('loadingScreen').classList.add('hide'); }
 
 // ============================================================
 // FIRESTORE HELPERS
@@ -698,7 +797,7 @@ async function fsGetAllSubs() {
 }
 
 // ============================================================
-// SUBSCRIPTION
+// SUBSCRIPTION SYSTEM
 // ============================================================
 const thisMonth = () => new Date().toISOString().slice(0, 7);
 
@@ -718,15 +817,16 @@ async function markSubPaid(userId) {
   if (!user) return;
   const d = await fsGetData(userId);
   const units = (d.units || []).length;
-  await fsSetSub(userId, { paidMonth: thisMonth(), paidAt: new Date().toISOString(), units, amount: units * PLATFORM_FEE, userName: user.name, userEmail: user.email, locked: false });
-  toast(`✅ ${user.name} marked as paid`);
+  const subData = { paidMonth: thisMonth(), paidAt: new Date().toISOString(), units, amount: units * PLATFORM_FEE, userName: user.name, userEmail: user.email, locked: false };
+  await fsSetSub(userId, subData);
+  toast(`✅ ${user.name} marked as paid — KSH ${(units * PLATFORM_FEE).toLocaleString()}`);
   renderSubscriptions();
 }
 window.markSubPaid = markSubPaid;
 
 async function lockAccount(userId) {
   const user = allUsersCache[userId];
-  showConfirm(`Lock account for <strong>${user?.name}</strong>?`, async () => {
+  showConfirm(`Lock account for <strong>${user?.name}</strong>? They won't be able to access their dashboard.`, async () => {
     await fsSetSub(userId, { paidMonth: '2000-01', locked: true });
     toast(`🔒 ${user?.name}'s account locked`, 'error');
     renderSubscriptions();
@@ -755,7 +855,7 @@ async function showSubGate(sub) {
   document.getElementById('gate-amount').textContent = 'KSH ' + amount.toLocaleString();
   document.getElementById('gate-amount-label').textContent = `per month (${units} unit${units !== 1 ? 's' : ''} × KSH ${PLATFORM_FEE})`;
   document.getElementById('gate-kes').textContent = 'KSH ' + amount.toLocaleString();
-  const msg = `Hello, I am ${currentUser.name} (${currentUser.email}). I have paid KSH ${amount.toLocaleString()} for my RentEase subscription. Please confirm.`;
+  const msg = `Hello, I am ${currentUser.name} (${currentUser.email}). I have paid KSH ${amount.toLocaleString()} for my RentEase subscription. Please confirm my account.`;
   document.getElementById('gate-wa-link').href = `https://wa.me/254${ADMIN_PHONE.replace(/^0/, '')}?text=${encodeURIComponent(msg)}`;
   document.getElementById('subGate').classList.add('active');
 }
@@ -784,6 +884,7 @@ async function doLogin() {
       currentUser = { id: ADMIN_ID, name: 'MJ Admin', email: ADMIN_EMAIL, role: 'admin' };
       saveSession(currentUser); await launchApp(); return;
     }
+    // Find user by email in Firestore
     const allUsers = await fsGetAllUsers();
     const userEntry = Object.entries(allUsers).find(([, u]) => u.email === email);
     if (!userEntry) { showError('login-error', 'Email not found. Please register.'); return; }
@@ -792,8 +893,7 @@ async function doLogin() {
     currentUser = { id: uid, name: user.name, email: user.email, phone: user.phone, role: 'landlord' };
     saveSession(currentUser); await launchApp();
   } catch(e) {
-    console.error('Login error:', e);
-    showError('login-error', 'Connection error. Check internet or Firebase rules. (' + (e.code || e.message) + ')');
+    showError('login-error', 'Connection error. Check your internet and try again.');
   } finally {
     btn.disabled = false; btn.textContent = 'Sign In';
   }
@@ -815,13 +915,14 @@ async function doRegister() {
     const exists = Object.values(allUsers).find(u => u.email === email);
     if (exists) { showError('reg-error', 'Email already registered. Please sign in.'); return; }
     const id = 'u_' + Date.now();
-    await fsSetUser(id, { id, name, email, phone, password: btoa(pass), createdAt: new Date().toISOString() });
+    const userData = { id, name, email, phone, password: btoa(pass), createdAt: new Date().toISOString() };
+    await fsSetUser(id, userData);
+    // Give free first month
     await fsSetSub(id, { paidMonth: thisMonth(), paidAt: new Date().toISOString(), units: 0, amount: 0, userName: name, userEmail: email, freeMonth: true, locked: false });
     currentUser = { id, name, email, phone, role: 'landlord' };
     saveSession(currentUser); await launchApp();
   } catch(e) {
-    console.error('Register error:', e);
-    showError('reg-error', 'Connection error. Check internet or Firebase rules. (' + (e.code || e.message) + ')');
+    showError('reg-error', 'Connection error. Check your internet and try again.');
   } finally {
     btn.disabled = false; btn.textContent = 'Create Account — Free to Start';
   }
@@ -833,22 +934,17 @@ function doLogout() {
   document.getElementById('appWrap').classList.remove('active');
   document.getElementById('loginScreen').classList.add('active');
   document.getElementById('registerScreen').classList.remove('active');
-  hideLoading();
+  document.getElementById('loadingScreen').classList.add('hide');
 }
 window.doLogout = doLogout;
 
 async function launchApp() {
   document.getElementById('loginScreen').classList.remove('active');
   document.getElementById('registerScreen').classList.remove('active');
-  showLoading('Loading your data...');
-  try {
-    await loadUserData();
-  } catch(e) {
-    console.error('Data load error:', e);
-    // Still continue, just with empty data
-  } finally {
-    hideLoading();
-  }
+  document.getElementById('loadingScreen').classList.remove('hide');
+  document.getElementById('loadingScreen').querySelector('.loading-text').textContent = 'Loading your data...';
+  await loadUserData();
+  document.getElementById('loadingScreen').classList.add('hide');
   document.getElementById('appWrap').classList.add('active');
   const isAdmin = currentUser.role === 'admin';
   document.getElementById('sidebar-avatar').textContent = initials(currentUser.name);
@@ -862,17 +958,19 @@ async function launchApp() {
   document.getElementById('nav-admin-users').style.display = isAdmin ? 'flex' : 'none';
   document.getElementById('nav-launch').style.display = isAdmin ? 'flex' : 'none';
   document.getElementById('live-url').textContent = window.location.hostname !== 'localhost' ? window.location.hostname : 'your-app.vercel.app';
-  if (isAdmin) await fsGetAllUsers();
+  if (isAdmin) { await fsGetAllUsers(); }
   renderAll();
   if (!isAdmin) setTimeout(() => checkSubGate(), 500);
   toast(`Welcome back, ${currentUser.name.split(' ')[0]}! 👋`);
 }
 
 // ============================================================
-// DATA
+// DATA LAYER — Firebase
 // ============================================================
 async function loadUserData() {
+  const uid = (currentUser.role === 'admin' && adminViewingId) ? adminViewingId : currentUser.id;
   if (currentUser.role === 'admin' && !adminViewingId) {
+    // Aggregate all landlords
     const allUsers = await fsGetAllUsers();
     const allUnits = [], allPays = [];
     for (const [uid2, u] of Object.entries(allUsers)) {
@@ -880,17 +978,16 @@ async function loadUserData() {
       (d.units || []).forEach(unit => allUnits.push({ ...unit, _ownerName: u.name }));
       (d.payments || []).forEach(p => allPays.push(p));
     }
-    S = { units: allUnits, payments: allPays, month: S.month };
+    S = { units: allUnits, payments: allPays, month: S.month || new Date().toISOString().slice(0, 7) };
   } else {
-    const uid = adminViewingId || currentUser.id;
     const d = await fsGetData(uid);
-    S = { units: d.units || [], payments: d.payments || [], month: S.month };
+    S = { units: d.units || [], payments: d.payments || [], month: S.month || new Date().toISOString().slice(0, 7) };
   }
 }
 
 async function save() {
-  const uid = adminViewingId || currentUser.id;
-  if (currentUser.role === 'admin' && !adminViewingId) return;
+  const uid = (currentUser.role === 'admin' && adminViewingId) ? adminViewingId : currentUser.id;
+  if (currentUser.role === 'admin' && !adminViewingId) return; // don't save aggregate view
   await fsSetData(uid, { units: S.units, payments: S.payments });
 }
 
@@ -902,15 +999,18 @@ async function setLandlord(id) {
   document.getElementById('ls-current-name').textContent = label;
   document.getElementById('admin-viewing-label').textContent = label;
   document.getElementById('admin-switch-back').style.display = id ? 'inline' : 'none';
-  showLoading('Switching view...');
-  try { await loadUserData(); } catch(e) { console.error(e); } finally { hideLoading(); }
+  document.getElementById('loadingScreen').classList.remove('hide');
+  document.getElementById('loadingScreen').querySelector('.loading-text').textContent = 'Switching view...';
+  await loadUserData();
+  document.getElementById('loadingScreen').classList.add('hide');
   renderLandlordSwitcher(); renderAll();
 }
 window.setLandlord = setLandlord;
 
 function toggleLandlordDropdown() {
-  document.getElementById('ls-dropdown').classList.toggle('open');
-  document.getElementById('ls-arrow').classList.toggle('open');
+  const dd = document.getElementById('ls-dropdown');
+  const arrow = document.getElementById('ls-arrow');
+  dd.classList.toggle('open'); arrow.classList.toggle('open');
 }
 window.toggleLandlordDropdown = toggleLandlordDropdown;
 
@@ -921,10 +1021,13 @@ document.addEventListener('click', e => {
 
 function renderLandlordSwitcher() {
   const dd = document.getElementById('ls-dropdown');
-  let html = Object.values(allUsersCache).map(u => `<div class="ls-option ${adminViewingId == u.id ? 'active' : ''}" onclick="setLandlord('${u.id}')"><div class="ls-avatar">${initials(u.name)}</div><div><div>${u.name}</div><div class="ls-option-sub">${u.email}</div></div></div>`).join('');
+  const users = allUsersCache;
+  let html = Object.values(users).map(u => {
+    return `<div class="ls-option ${adminViewingId == u.id ? 'active' : ''}" onclick="setLandlord('${u.id}')"><div class="ls-avatar">${initials(u.name)}</div><div><div>${u.name}</div><div class="ls-option-sub">${u.email}</div></div></div>`;
+  }).join('');
   html += `<div class="ls-option ${!adminViewingId ? 'active' : ''}" onclick="setLandlord(null)" style="border-top:1px solid var(--border)"><div class="ls-avatar" style="background:var(--surface)">★</div><div><div>All Landlords</div><div class="ls-option-sub">Aggregate view</div></div></div>`;
   dd.innerHTML = html;
-  document.getElementById('users-count').textContent = Object.keys(allUsersCache).length;
+  document.getElementById('users-count').textContent = Object.keys(users).length;
 }
 
 // ============================================================
@@ -936,6 +1039,7 @@ function fmtDate(d) { if (!d) return '—'; return new Date(d + 'T12:00:00').toL
 function initials(n) { if (!n) return '?'; return n.split(' ').slice(0, 2).map(w => w[0]).join('').toUpperCase(); }
 function uid() { return 'id_' + Date.now() + '_' + Math.floor(Math.random() * 1000); }
 function getPaid(unitId, month) { return S.payments.filter(p => p.unitId === unitId && p.month === month).reduce((s, p) => s + p.amount, 0); }
+
 function getStatus(u, m) {
   if (u.locked) return 'locked';
   if (!u.tenant) return 'vacant';
@@ -944,9 +1048,10 @@ function getStatus(u, m) {
   if (p > 0) return 'partial';
   return 'arrears';
 }
+
 function badge(s) {
   const map = { paid: ['b-paid','✓ Paid'], arrears: ['b-arrears','Arrears'], partial: ['b-partial','Partial'], vacant: ['b-vacant','Vacant'], locked: ['b-locked-unit','🔒 Locked'] };
-  const [c, l] = map[s] || ['b-vacant','—'];
+  const [c, l] = map[s] || ['b-vacant', '—'];
   return `<span class="badge ${c}">${s === 'paid' || s === 'locked' ? '' : '<span class="blink"></span>'}${l}</span>`;
 }
 function methodBadge(m) { return `<span class="badge ${m === 'M-Pesa' ? 'b-method' : 'b-cash'}">${m}</span>`; }
@@ -961,7 +1066,7 @@ document.querySelectorAll('.nav-item[data-page]').forEach(btn => {
     this.classList.add('active');
     const pg = this.dataset.page;
     document.getElementById('page-' + pg).classList.add('active');
-    const titles = { dashboard:'Dashboard', mpesa:'M-Pesa Collections', units:'Units', payments:'Payments', arrears:'Arrears', reminders:'Reminders', subscriptions:'Subscriptions', 'admin-users':'All Landlords', launch:'Launch Guide' };
+    const titles = { dashboard: 'Dashboard', mpesa: 'M-Pesa Collections', units: 'Units', payments: 'Payments', arrears: 'Arrears', reminders: 'Reminders', subscriptions: 'Subscriptions', 'admin-users': 'All Landlords', launch: 'Launch Guide' };
     document.getElementById('page-title').textContent = titles[pg] || pg;
     if (pg === 'payments') renderMonthFilters();
     if (pg === 'reminders') renderReminders();
@@ -990,7 +1095,7 @@ function openModal(id) {
     document.getElementById('p-note').value = '';
     document.getElementById('p-amount').value = '';
     const sel = document.getElementById('p-unit');
-    sel.innerHTML = '<option value="">— Select unit —</option>' + S.units.map(u => `<option value="${u.id}">${u.name}${u.tenant ? ' — '+u.tenant : ''}</option>`).join('');
+    sel.innerHTML = '<option value="">— Select unit —</option>' + S.units.map(u => `<option value="${u.id}">${u.name}${u.tenant ? ' — ' + u.tenant : ''}</option>`).join('');
   }
   document.getElementById(id).classList.add('open');
 }
@@ -1009,7 +1114,7 @@ window.prefillRent = prefillRent;
 // ============================================================
 function toast(msg, type = '') {
   const t = document.getElementById('toast');
-  t.textContent = msg; t.className = 'toast show' + (type ? ' '+type : '');
+  t.textContent = msg; t.className = 'toast show' + (type ? ' ' + type : '');
   setTimeout(() => t.classList.remove('show'), 3500);
 }
 
@@ -1071,7 +1176,7 @@ window.vacateUnit = vacateUnit;
 
 function lockUnit(id) {
   const u = S.units.find(x => x.id == id); if (!u) return;
-  showConfirm(`Lock unit <strong>${u.name}</strong>?`, async () => {
+  showConfirm(`Lock unit <strong>${u.name}</strong>${u.tenant ? ' — tenant: <strong>' + u.tenant + '</strong>' : ''}?`, async () => {
     u.locked = true;
     await save(); toast(`Unit ${u.name} locked 🔒`, 'error'); renderAll();
   });
@@ -1081,7 +1186,7 @@ window.lockUnit = lockUnit;
 function unlockUnit(id) {
   const u = S.units.find(x => x.id == id); if (!u) return;
   u.locked = false;
-  save().then(() => { toast(`Unit ${u.name} unlocked`); renderAll(); });
+  save().then(() => { toast(`Unit ${u.name} unlocked ✓`); renderAll(); });
 }
 window.unlockUnit = unlockUnit;
 
@@ -1115,7 +1220,7 @@ function editPayment(id) {
   document.getElementById('pay-modal-btn').textContent = 'Save Changes';
   document.getElementById('p-id').value = p.id;
   const sel = document.getElementById('p-unit');
-  sel.innerHTML = '<option value="">— Select unit —</option>' + S.units.map(u => `<option value="${u.id}">${u.name}${u.tenant ? ' — '+u.tenant : ''}</option>`).join('');
+  sel.innerHTML = '<option value="">— Select unit —</option>' + S.units.map(u => `<option value="${u.id}">${u.name}${u.tenant ? ' — ' + u.tenant : ''}</option>`).join('');
   sel.value = p.unitId;
   document.getElementById('p-amount').value = p.amount;
   document.getElementById('p-date').value = p.date;
@@ -1164,7 +1269,7 @@ function showConfirm(msg, cb) {
 window.showConfirm = showConfirm;
 
 // ============================================================
-// RENDER
+// RENDER ALL
 // ============================================================
 function renderAll() {
   updateWelcome(); renderStats(); renderDash(); renderMpesa(); renderUnits();
@@ -1185,13 +1290,13 @@ function updateWelcome() {
 function updateBadges() {
   const m = S.month;
   const arrCount = S.units.filter(u => u.tenant && !u.locked && getStatus(u, m) === 'arrears').length;
-  const ab = document.getElementById('arrears-badge');
-  ab.textContent = arrCount; ab.style.display = arrCount ? 'inline' : 'none';
+  document.getElementById('arrears-badge').textContent = arrCount;
+  document.getElementById('arrears-badge').style.display = arrCount ? 'inline' : 'none';
   const mpCount = S.payments.filter(p => p.month === m && p.method === 'M-Pesa').length;
   document.getElementById('mpesa-badge').textContent = mpCount;
   const remCount = S.units.filter(u => u.tenant && !u.locked && getStatus(u, m) !== 'paid' && getStatus(u, m) !== 'vacant').length;
-  const rb = document.getElementById('reminders-badge');
-  rb.textContent = remCount; rb.style.display = remCount ? 'inline' : 'none';
+  document.getElementById('reminders-badge').textContent = remCount;
+  document.getElementById('reminders-badge').style.display = remCount ? 'inline' : 'none';
 }
 
 function renderStats() {
@@ -1199,12 +1304,13 @@ function renderStats() {
   const occ = S.units.filter(u => u.tenant && !u.locked);
   const exp = occ.reduce((s, u) => s + u.rent, 0);
   const col = occ.reduce((s, u) => s + getPaid(u.id, m), 0);
-  const pct = exp ? Math.round(col / exp * 100) : 0;
+  const out = exp - col;
   const arr = occ.filter(u => getStatus(u, m) === 'arrears').length;
   const occPct = S.units.length ? Math.round(occ.length / S.units.length * 100) : 0;
+  const pct = exp ? Math.round(col / exp * 100) : 0;
   document.getElementById('stat-expected').textContent = 'KSH ' + exp.toLocaleString();
   document.getElementById('stat-collected').textContent = 'KSH ' + col.toLocaleString();
-  document.getElementById('stat-outstanding').textContent = 'KSH ' + Math.max(0, exp - col).toLocaleString();
+  document.getElementById('stat-outstanding').textContent = 'KSH ' + out.toLocaleString();
   document.getElementById('stat-occupancy').textContent = occPct + '%';
   document.getElementById('stat-pct').textContent = pct + '%';
   document.getElementById('stat-arrears-badge').textContent = arr;
@@ -1224,8 +1330,9 @@ function renderDash() {
     const bal = u.locked ? 0 : Math.max(0, u.rent - paid);
     const isLocked = u.locked;
     const owner = u._ownerName ? `<div style="font-size:10px;color:var(--text3);font-family:var(--mono)">${u._ownerName}</div>` : '';
+    const labelClass = isLocked ? 'unit-label locked-label' : 'unit-label';
     return `<tr class="${isLocked ? 'row-locked' : ''}">
-      <td><span class="unit-label ${isLocked ? 'locked-label' : ''}">${isLocked ? '🔒 ' : ''}${u.name}</span>${owner}</td>
+      <td><span class="${labelClass}">${isLocked ? '🔒 ' : ''}${u.name}</span>${owner}</td>
       <td style="color:var(--text2);font-size:11px">${u.property || '—'}</td>
       <td>${u.tenant ? `<div style="font-weight:600;font-size:12px">${u.tenant}</div><div style="font-size:10px;color:var(--text3)">${u.phone || ''}</div>` : `<span style="color:var(--text3);font-style:italic;font-size:11px">Vacant</span>`}</td>
       <td style="font-family:var(--mono);font-weight:600;font-size:12px">${u.rent.toLocaleString()}</td>
@@ -1259,7 +1366,7 @@ function renderMpesa() {
   const recent = [...S.payments].filter(p => p.method === 'M-Pesa').sort((a, b) => b.date.localeCompare(a.date)).slice(0, 5);
   document.getElementById('mp-txn-list').innerHTML = recent.length ? recent.map(p => {
     const u = S.units.find(x => x.id === p.unitId);
-    return `<div class="txn-row"><div class="txn-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A651" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="txn-info"><div class="txn-name">${p.tenant || 'Unknown'}${u ? ' · '+u.name : ''}</div><div class="txn-ref">${p.note || 'No ref'} · ${fmtDate(p.date)}</div></div><div class="txn-amount">+${p.amount.toLocaleString()}</div></div>`;
+    return `<div class="txn-row"><div class="txn-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00A651" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="txn-info"><div class="txn-name">${p.tenant || 'Unknown'}${u ? ' · ' + u.name : ''}</div><div class="txn-ref">${p.note || 'No ref'} · ${fmtDate(p.date)}</div></div><div class="txn-amount">+${p.amount.toLocaleString()}</div></div>`;
   }).join('') : '<div style="color:var(--text3);font-size:12px;padding:10px 0">No M-Pesa payments yet</div>';
   const sorted = [...S.payments].sort((a, b) => b.date.localeCompare(a.date));
   document.getElementById('mp-table-body').innerHTML = sorted.length ? sorted.map(p => {
@@ -1306,7 +1413,8 @@ function renderUnits() {
 
 function renderMonthFilters() {
   const months = [...new Set([S.month, ...S.payments.map(p => p.month)])].sort().reverse();
-  document.getElementById('month-filters').innerHTML = '<span style="font-size:10px;color:var(--text3);font-family:var(--mono);margin-right:4px">MONTH:</span>' +
+  const el = document.getElementById('month-filters');
+  el.innerHTML = '<span style="font-size:10px;color:var(--text3);font-family:var(--mono);margin-right:4px">MONTH:</span>' +
     months.map(m => `<button class="month-pill ${m === S.month ? 'active' : ''}" onclick="setMonth('${m}',this)">${fmtMonth(m)}</button>`).join('');
 }
 
@@ -1356,6 +1464,7 @@ async function renderSubscriptions() {
   const users = await fsGetAllUsers();
   const subs = await fsGetAllSubs();
   const list = Object.values(users);
+  const m = thisMonth();
   let totalRevenue = 0, activeCount = 0, unpaidCount = 0;
   const rows = [];
   for (const u of list) {
@@ -1364,9 +1473,10 @@ async function renderSubscriptions() {
     const amount = units * PLATFORM_FEE;
     const sub = subs[u.id] || {};
     const status = getSubStatus(sub);
-    if (status === 'active' || status === 'grace') { totalRevenue += sub.amount || 0; activeCount++; } else unpaidCount++;
+    if (status === 'active' || status === 'grace') { totalRevenue += sub.amount || 0; activeCount++; }
+    else unpaidCount++;
     const statusBadge = status === 'active' ? '<span class="badge b-active">Active</span>' : status === 'grace' ? '<span class="badge b-grace">Grace</span>' : '<span class="badge b-locked">Unpaid</span>';
-    const waMsg = `Hello ${u.name}, your RentEase subscription is due. Amount: KSH ${amount.toLocaleString()} (${units} units × KSH ${PLATFORM_FEE}). Please send to ${ADMIN_PHONE}. Thank you.`;
+    const waMsg = `Hello ${u.name}, your RentEase subscription for ${fmtMonth(m)} is due. Amount: KSH ${amount.toLocaleString()} (${units} units × KSH ${PLATFORM_FEE}). Please send to ${ADMIN_PHONE}. Thank you.`;
     const wa = `https://wa.me/${(u.phone || '').replace(/[^0-9]/g, '').replace(/^0/, '254')}?text=${encodeURIComponent(waMsg)}`;
     rows.push(`<div class="landlord-sub-row"><div class="user-avatar" style="width:36px;height:36px;border-radius:9px;background:var(--mpesa-glow);border:1px solid var(--border-green);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--mpesa-bright);flex-shrink:0">${initials(u.name)}</div><div class="landlord-sub-info"><div class="landlord-sub-name">${u.name}</div><div class="landlord-sub-detail">${u.email} · ${units} unit${units !== 1 ? 's' : ''} · ${u.phone || 'No phone'}</div>${sub.paidAt ? `<div class="landlord-sub-detail">Last paid: ${fmtDate(sub.paidAt?.slice(0,10))}</div>` : '<div class="landlord-sub-detail" style="color:var(--red)">Never paid</div>'}</div><div><div class="landlord-sub-amount">KSH ${amount.toLocaleString()}</div><div class="landlord-sub-amount-label">${units} × ${PLATFORM_FEE}/mo</div></div><div style="margin-right:10px">${statusBadge}</div><div style="display:flex;gap:5px;flex-wrap:wrap"><button class="btn btn-pay btn-sm" onclick="markSubPaid('${u.id}')">✓ Mark Paid</button>${status !== 'active' ? `<button class="btn btn-danger btn-sm" onclick="lockAccount('${u.id}')">Lock</button>` : `<button class="btn btn-amber btn-sm" onclick="unlockAccount('${u.id}')">Unlock</button>`}${u.phone ? `<a href="${wa}" target="_blank" class="btn btn-ghost btn-sm" style="text-decoration:none">WA</a>` : ''}</div></div>`);
   }
@@ -1389,7 +1499,8 @@ async function renderAdminUsers() {
   for (const u of list) {
     const d = await fsGetData(u.id);
     const units = (d.units || []).length;
-    const col = (d.payments || []).filter(p => p.month === m).reduce((s, p) => s + p.amount, 0);
+    const pays = (d.payments || []).filter(p => p.month === m);
+    const col = pays.reduce((s, p) => s + p.amount, 0);
     const sub = await fsGetSub(u.id);
     const status = getSubStatus(sub);
     const statusBadge = status === 'active' ? '<span class="badge b-active">Active</span>' : status === 'grace' ? '<span class="badge b-grace">Grace</span>' : '<span class="badge b-locked">Locked</span>';
@@ -1408,7 +1519,7 @@ function updateSidebar() {
 }
 
 // ============================================================
-// KEYBOARD
+// KEYBOARD SHORTCUTS
 // ============================================================
 document.getElementById('login-password').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 document.getElementById('reg-password').addEventListener('keydown', e => { if (e.key === 'Enter') doRegister(); });
@@ -1421,15 +1532,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   const sess = getSession();
   if (sess) {
     currentUser = sess;
-    try {
-      await launchApp();
-    } catch(e) {
-      console.error('Session restore failed:', e);
-      hideLoading();
-      document.getElementById('loginScreen').classList.add('active');
-    }
+    try { await launchApp(); }
+    catch(e) { document.getElementById('loadingScreen').classList.add('hide'); document.getElementById('loginScreen').classList.add('active'); }
   } else {
-    hideLoading();
+    document.getElementById('loadingScreen').classList.add('hide');
     document.getElementById('loginScreen').classList.add('active');
   }
 });
